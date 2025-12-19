@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "winter-pet-services",
+  "private_key_id": "b030537925aa0c41fbe4d38a2b29e34f6786ef70",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDisgq96gGWJad0\n0UfxzzCwBjUpm0A2NqauIjzHTR3zPkfTm2Clc9VYTzDlibV+2WJjTO+OG4KwZz+0\nhI27LyMAbSWyz3Hdm5rVLrxLWVlBEEE2aZMa2BiBiQ34OMOTOpAS3cIiFEgTzRJg\nWY+9XVty6vCH9Dy1FzJHD7LaHhJIu5YX56JZfs3zrXYdB8Kk4D8sAs4E92Qh+kGA\nSCpiZ1JCQYoUPv8EJbMDVDxrGYklO1GWiKdzP8EaA1vBSAu55noj+pHjPC9Z82D7\nN33z5YhgKbVkPLVIUsNlgU4E1ucopwJ+N4jVTfWEwPQk8lhRSDyFyEjwQtQDl3UP\nqx4U1EEjAgMBAAECggEAFaUdTHPW8fCndAp1fZukUPJOyim2MFb4hEDln7v3w51r\nO0OnLzUHplZtW0VSTInSEJwsdVugF1rMZN6RL9G43FYPluqiux+b4YYEWYdu87zr\nFRhwgMwoTtn4uP4mglzBm+OLoThhh255tjRm+pQ64paXH8wMrdfIp6tSjuv3H/WH\nQ/jhNhbFzMzo7W+3ozMJzv59PWrjpyTW7AkeC1CaVnUL0DQZkNqABpizE/iRC3D2\nVC20mULDGOZajsUTy5dZXkKrMez6x7ApanAbgC+ePqaWtKYMwq9HYwduZxHLmNQv\n7BIYPK5n7oT6+W1FZVNJ/HuAT0ZrlSiND7ywJ6kCrQKBgQD2QuJ472sb3o3h2Fad\n+8CHXE7W8x/aDYhnvH7Vr+OgMi5VJgIv9lut05zP4bbVzVyQZpQ8uJ/vOOsMCG/8\nMM0JFphUqKdAJKroDCNtYMnDS3bfisRhULsQ8En09kMFn+7uu+pYO+RBAXBmniv4\nwujf80Lvb84pRenFdLx2iH/jHQKBgQDrqRNuowvIrsvtcJ/VufjU9YNP/k08t0p4\noH/KTGpN2VyHS2UtRgn4DM9ueROef7JVtWecVbkmRZg4mjI5xOe8jINMCONp32Sd\nZuKQp5mYG9gm551gZPyZ1l3ZC/OGHRIh3NodhgPqBwfqcF26/PJ26Gnyo/T9ZfCG\nf5fyv6VBPwKBgQCvAoOObJ/TE4wDl8qexd5ilEBXVDsrrPhmuLfuxuxe2arBypw9\nV7h5xWyo9AEK2sJQwQXSTWckDHBGgeyL7maYcd1aNO1/kU+AT7gRsHpS91uIrEa5\n3jTDafE1TJn+8lVMhnGZuR6S8CHgW8JmLKZxGaFVJkD+Zfgn4rlZB9LTJQKBgQCF\nL65S1gU/60JHtGIxGYT/Xq5TFGc0jGajXBo9DAj8bH8126+X8cCKlzrYtccXyhXR\nCNBA89XLQoPwYX1HVvidgFBoNZHJcT7dEpuzo3VUGVCFVFuGciytCRFLLMz6HA32\nY2pGS0qFBmo73jurBXBHMb1HK9C3MdjJOu12fUd5YwKBgDnmP/rR8zsqHuszP2GX\nrcT+dhqHPTs3sYWvZn5Lq62maFlJeZGSUqOdoq3zroHOhJuU9uzVW7bvdcOyVQRL\nRcv1Q0bQjvPekUyX704bupdQl+YqM6BS1WVSlHojrVipgPdT9hV3uyYwPG2VJSM1\n0s0GzKZdvDuXZEA5G231+e23\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@winter-pet-services.iam.gserviceaccount.com",
+  "client_id": "103376749559750475507",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40winter-pet-services.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
