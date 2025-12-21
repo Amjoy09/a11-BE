@@ -67,11 +67,29 @@ async function run() {
       res.send(result);
     });
 
+    app.get("/users", verifyFBToken, async (req, res) => {
+      const result = await userCollections.find().toArray();
+      res.status(200).send(result);
+    });
+
     app.get("/users/role/:email", async (req, res) => {
       const { email } = req.params;
       const query = { email: email };
       const result = await userCollections.findOne(query);
       console.log(result);
+      res.send(result);
+    });
+
+    app.patch("/update/user/status", verifyFBToken, async (req, res) => {
+      const { email, status } = req.query;
+      const query = { email: email };
+
+      const updateStatus = {
+        $set: {
+          status: status,
+        },
+      };
+      const result = await userCollections.updateOne(query, updateStatus);
       res.send(result);
     });
 
@@ -82,14 +100,22 @@ async function run() {
       res.send(result);
     });
 
-    app.get("/manager/products/:email", async (req, res) => {
-      const email = req.params.email;
-      const query = { managerEmail: email };
-      const result = await productCollections.find(query).toArray();
-      res.send(result);
+    app.get("/my-request", verifyFBToken, async (req, res) => {
+      const email = req.decoded_email;
+      const size = Number(req.query.size);
+      const page = Number(req.query.page);
+      const query = { requester_email: email };
+
+      const result = await requestCollections
+        .find(query)
+        .limit(size)
+        .skip(size * page)
+        .toArray();
+
+      const totalRequest = await requestCollections.countDocuments(query);
+      res.send({ request: result, totalRequest });
     });
 
-    // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
