@@ -288,6 +288,62 @@ async function run() {
       });
     });
 
+    app.get("/donor-dashboard", verifyFBToken, async (req, res) => {
+      try {
+        const email = req.decoded_email;
+
+        const donor = await userCollection.findOne({
+          email: email,
+          role: "donor",
+          status: "active",
+        });
+
+        if (!donor) {
+          return res.status(404).send({ message: "Donor not found" });
+        }
+
+        const newRequestQuery = {
+          donation_status: "pending",
+          blood_group: donor.blood,
+          recipient_district: donor.district,
+          recipient_upazila: donor.upazila,
+        };
+
+        const newRequests = await requestCollection
+          .find(newRequestQuery)
+          .sort({ _id: -1 })
+          .toArray();
+
+        const inProgressRequestQuery = {
+          donation_status: "inprogress",
+          donor_email: email,
+        };
+
+        const inProgressRequests = await requestCollection
+          .find(inProgressRequestQuery)
+          .sort({ _id: -1 })
+          .toArray();
+
+        const completedQuery = {
+          donation_status: "done",
+          donor_email: email,
+        };
+
+        const completedRequests = await requestCollection
+          .find(completedQuery)
+          .sort({ _id: -1 })
+          .toArray();
+
+        res.send({ newRequests, inProgressRequests, completedRequests });
+      } catch (error) {
+        console.log(error);
+
+        res.status(500).send({
+          message: "Failed to load donor dashboard",
+        });
+      }
+    });
+
     app.get("/donor-profile/:id", async (req, res) => {
       try {
         const id = req.params.id;
@@ -301,10 +357,12 @@ async function run() {
           {
             projection: {
               name: 1,
+              email: 1,
               blood: 1,
               district: 1,
               upazila: 1,
               status: 1,
+              photoURL: 1,
             },
           },
         );
