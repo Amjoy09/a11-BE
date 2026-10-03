@@ -415,11 +415,11 @@ async function run() {
         email: donorEmail,
       });
 
-      // if (donor?.role !== "donor") {
-      //   return res.status(403).send({
-      //     message: "Only donors can accept donation requests",
-      //   });
-      // }
+      if (donor?.role !== "donor" || donor?.status !== "active") {
+        return res.status(403).send({
+          message: "Only active donors can accept donation requests",
+        });
+      }
 
       const request = await requestCollection.findOne({
         _id: new ObjectId(id),
@@ -486,6 +486,30 @@ async function run() {
       );
 
       res.send(updatedRequest);
+    });
+
+    app.get("/donation-history", verifyFBToken, async (req, res) => {
+      try {
+        const email = req.decoded_email;
+
+        const query = {
+          donor_email: email,
+          donation_status: "done",
+        };
+
+        const result = await requestCollection
+          .find(query)
+          .sort({ _id: -1 })
+          .toArray();
+
+        res.send(result);
+      } catch (error) {
+        console.log(error);
+
+        res.status(500).send({
+          message: "Failed to load donation history",
+        });
+      }
     });
 
     app.patch("/request-cancel/:id", verifyFBToken, async (req, res) => {
